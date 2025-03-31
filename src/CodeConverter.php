@@ -75,7 +75,7 @@ final class CodeConverter {
    * @param string $templateCode
    * @return int
    */
-  private function convertMethods(string &$templateCode, string $tag = null): int {
+  private function convertMethods(string &$templateCode, string|null $tag = null): int {
     $count = 0;
 
     if (is_null($tag)) {

@@ -30,7 +30,7 @@ class FileLoader {
    * @param string|null $path
    * @return int|false
    */
-  public function getModificationTime(string $file, string $path = null): int|false {
+  public function getModificationTime(string $file, string|null $path = null): int|false {
     return filemtime($this->getFilePath($file, $path));
   }
 
@@ -42,7 +42,7 @@ class FileLoader {
    * @return string
    * @throws Exception
    */
-  public function load(string $file, string $path = null): string {
+  public function load(string $file, string|null $path = null): string {
     $filename = $this->getFilePath($file, $path);
 
     if (!is_file($filename) || !is_readable($filename)) {
@@ -75,7 +75,7 @@ class FileLoader {
    * @param string|null $path
    * @return string
    */
-  private function getFilePath(string $file, string $path = null) {
+  private function getFilePath(string $file, string|null $path = null) {
     $path ??= $this->defaultPath ?? '';
     $extension = $this->extension ?? '';
     $extension = str_starts_with($extension, '.') ? substr($extension, 1) : $extension;

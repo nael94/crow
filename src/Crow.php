@@ -167,7 +167,7 @@ class Crow {
    * @return void
    * @throws Exception
    */
-  public static function addComponentsNamespace(string $namespace, string $prefix = null): void {
+  public static function addComponentsNamespace(string $namespace, string|null $prefix = null): void {
     $arguments = [$namespace];
 
     if (!is_null($prefix)) {
@@ -193,7 +193,7 @@ class Crow {
    *
    * @return mixed
    */
-  public static function data(string $key = null, mixed $value = null): mixed {
+  public static function data(string|null $key = null, mixed $value = null): mixed {
     if (is_null($key) && is_null($value)) return self::$data;
     if (is_null($value)) return self::$data[$key] ?? null;
 
